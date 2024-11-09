@@ -1,0 +1,153 @@
+.tags {
+	display: inline-block;
+	vertical-align: middle !important;
+	font-size: 14px;
+	font-weight: 500;
+	height: 20px;
+	line-height: 20px;
+	border-radius: 15px;
+	padding: 0 10px;
+	color: white;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+	> a,
+	.cm-hmd-internal-link,
+	.cm-link-alias,
+	.is-unresolved,
+	.cm-underline {
+		all: unset !important;
+		pointer-events: none !important;
+	}
+
+	&.arrow-tags {
+		all: unset;
+		all: inherit;
+		display: inline-block;
+		height: 24px;
+		line-height: 24px;
+		position: relative;
+		margin: 0 10px 0 10px;
+		padding: 0 10px 0 12px;
+		border-bottom-right-radius: 3px;
+		border-top-right-radius: 3px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+		color: white !important;
+		font-size: 14px;
+		font-weight: 500;
+		text-decoration: none;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+		-webkit-text-fill-color: #ffffff !important;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -12px;
+			width: 0;
+			height: 0;
+			border-color: transparent;
+			border-style: solid;
+			border-width: 12px 12px 12px 0;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 10px;
+			left: 1px;
+			float: left;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background: white;
+			box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
+		}
+	}
+
+	&.todo,
+	&.planned,
+	&.grey {
+		background-color: #6e6e6e;
+
+		&:before {
+			border-right-color: #6e6e6e;
+		}
+	}
+
+	&.doing,
+	&.in-progress,
+	&.orange {
+		background-color: #ff7f00;
+
+		&:before {
+			border-right-color: #ff7f00;
+		}
+	}
+
+	&.done,
+	&.tip,
+	&.green {
+		background-color: #42b983;
+
+		&:before {
+			border-right-color: #42b983;
+		}
+	}
+
+	&.on-hold,
+	&.tbd,
+	&.wip,
+	&.proposed,
+	&.draft,
+	&.blue {
+		background-color: #7aa0dd;
+
+		&:before {
+			border-right-color: #7aa0dd;
+		}
+	}
+
+	&.mvp,
+	&.purple {
+		background-color: #7a5add;
+
+		&:before {
+			border-right-color: #7a5add;
+		}
+	}
+
+	&.warn,
+	&.warning,
+	&.yellow {
+		background-color: #e7c000;
+
+		&:before {
+			border-right-color: #e7c000;
+		}
+	}
+
+	&.tbd,
+	&.mvp,
+	&.wip,
+	&.draft {
+		text-transform: uppercase;
+	}
+
+	&.blocked,
+	&.canceled,
+	&.error,
+	&.red {
+		background-color: #da5961;
+
+		&:before {
+			border-right-color: #da5961;
+		}
+	}
+
+	& + & {
+		margin-left: 5px;
+	}
+}
+.hidden {
+	display: none;
+}
