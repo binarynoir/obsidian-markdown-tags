@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - none
 
+## [1.0.2] - 2024-11-11
+
+### Changed
+
+- Updated name to remove obsidian from prefix
+
 ## [1.0.1] - 2024-11-11
 
 ### Added
