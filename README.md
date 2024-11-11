@@ -171,6 +171,10 @@ The plugin defaults to `grey` when invalid colors are detected to ensure a consi
 - Download the [Latest release](https://github.com/binarynoir/obsidian-markdown-tags/releases/latest)
 - Extract the `obsidian-markdown-tags` folder from the zip to your vault `<vault>/.obsidian/plugins/`
 
+### Manually installing the plugin
+
+Copy over main.js, styles.css, manifest.json to your vault VaultFolder/.obsidian/plugins/obsidian-markdown-tags/.
+
 ---
 
 ## Contributing
