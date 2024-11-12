@@ -191,7 +191,7 @@ cp main.js manifest.json /path/to/your/vault/.obsidian/plugins/obsidian-markdown
 
 ### Release
 
-## Releasing new releases
+### Releasing new releases
 
 - Update the changelog with new features and fixes
 - Commit all changed files and create a pull request
