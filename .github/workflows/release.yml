@@ -1,4 +1,4 @@
-name: Release Obsidian plugin
+name: Release Obsidian Plugin
 
 on:
   push:
@@ -34,4 +34,5 @@ jobs:
           gh release create "$tag" \
             --title="$tag" \
             --draft \
+            --generate-notes \
             main.js manifest.json styles.css
