@@ -138,17 +138,17 @@ See Examples Markdown Documents
 
 ---
 
-### With Arrow (using `[[<tag|label|bgcolor))`)
+### With Arrow (using `((<tag|label|bgcolor))`)
 
 #### MVP
 
-- `[[<tag|mvp|grey))`
-- `[[<tag|mvp|green))`
-- `[[<tag|mvp|yellow))`
-- `[[<tag|mvp|orange))`
-- `[[<tag|mvp|blue))`
-- `[[<tag|mvp|purple))`
-- `[[<tag|mvp|red))`
+- `((<tag|mvp|grey))`
+- `((<tag|mvp|green))`
+- `((<tag|mvp|yellow))`
+- `((<tag|mvp|orange))`
+- `((<tag|mvp|blue))`
+- `((<tag|mvp|purple))`
+- `((<tag|mvp|red))`
 
 ... _(repeat as necessary for remaining tags: on-hold, tbd, proposed, draft, mvp, etc.)_
 
