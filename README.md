@@ -22,10 +22,10 @@ Use predefined colors or specify custom hex codes for both background and foregr
 Simple, flexible syntax options:
 
 ```markdown
-[[tag|label]]
-[[tag|label|background-color]]
-[[tag|label|background-color|foreground-color]]
-[[<tag|label]] <!-- Adds an arrow to the left -->
+((tag|label))
+((tag|label|background-color))
+((tag|label|background-color|foreground-color))
+((<tag|label)) <!-- Adds an arrow to the left -->
 ```
 
 ### 🌈 Supports a Variety of Colors
@@ -45,19 +45,19 @@ Choose from predefined colors (`grey`, `green`, `orange`, etc.) or use custom he
 #### Status Tags
 
 ```markdown
-[[tag|todo]] [[tag|in-progress|#ffcc00]] [[tag|done|#28a745|#ffffff]]
+((tag|todo)) ((tag|in-progress|#ffcc00)) ((tag|done|#28a745|#ffffff))
 ```
 
 #### Arrowed Tags
 
 ```markdown
-[[<tag|planned]] [[<tag|custom test]]
+((<tag|planned)) ((<tag|custom test))
 ```
 
 #### Customizing Colors
 
 ```markdown
-[[tag|background|#ff4500]] [[tag|foreground||#ff6347]] [[tag|both colors|#32cd32|#ffffff]]
+((tag|background|#ff4500)) ((tag|foreground||#ff6347)) ((tag|both colors|#32cd32|#ffffff))
 ```
 
 ---
@@ -76,79 +76,79 @@ See Examples Markdown Documents
 
 #### TODO
 
-- `[[tag|todo|grey]]`
-- `[[tag|todo|green]]`
-- `[[tag|todo|yellow]]`
-- `[[tag|todo|orange]]`
-- `[[tag|todo|blue]]`
-- `[[tag|todo|purple]]`
-- `[[tag|todo|red]]`
+- `((tag|todo|grey))`
+- `((tag|todo|green))`
+- `((tag|todo|yellow))`
+- `((tag|todo|orange))`
+- `((tag|todo|blue))`
+- `((tag|todo|purple))`
+- `((tag|todo|red))`
 
 #### PLANNED
 
-- `[[tag|planned|grey]]`
-- `[[tag|planned|green]]`
-- `[[tag|planned|yellow]]`
-- `[[tag|planned|orange]]`
-- `[[tag|planned|blue]]`
-- `[[tag|planned|purple]]`
-- `[[tag|planned|red]]`
+- `((tag|planned|grey))`
+- `((tag|planned|green))`
+- `((tag|planned|yellow))`
+- `((tag|planned|orange))`
+- `((tag|planned|blue))`
+- `((tag|planned|purple))`
+- `((|planned|red))`
 
 #### IN-PROGRESS
 
-- `[[tag|in-progress|grey]]`
-- `[[tag|in-progress|green]]`
-- `[[tag|in-progress|yellow]]`
-- `[[tag|in-progress|orange]]`
-- `[[tag|in-progress|blue]]`
-- `[[tag|in-progress|purple]]`
-- `[[tag|in-progress|red]]`
+- `((|in-progress|grey))`
+- `((|in-progress|green))`
+- `((|in-progress|yellow))`
+- `((|in-progress|orange))`
+- `((|in-progress|blue))`
+- `((|in-progress|purple))`
+- `((|in-progress|red))`
 
 #### DOING
 
-- `[[tag|doing|grey]]`
-- `[[tag|doing|green]]`
-- `[[tag|doing|yellow]]`
-- `[[tag|doing|orange]]`
-- `[[tag|doing|blue]]`
-- `[[tag|doing|purple]]`
-- `[[tag|doing|red]]`
+- `((|doing|grey))`
+- `((|doing|green))`
+- `((|doing|yellow))`
+- `((|doing|orange))`
+- `((|doing|blue))`
+- `((|doing|purple))`
+- `((|doing|red))`
 
 #### DONE
 
-- `[[tag|done|grey]]`
-- `[[tag|done|green]]`
-- `[[tag|done|yellow]]`
-- `[[tag|done|orange]]`
-- `[[tag|done|blue]]`
-- `[[tag|done|purple]]`
-- `[[tag|done|red]]`
+- `((|done|grey))`
+- `((|done|green))`
+- `((|done|yellow))`
+- `((|done|orange))`
+- `((|done|blue))`
+- `((|done|purple))`
+- `((|done|red))`
 
 #### TIP
 
-- `[[tag|tip|grey]]`
-- `[[tag|tip|green]]`
-- `[[tag|tip|yellow]]`
-- `[[tag|tip|orange]]`
-- `[[tag|tip|blue]]`
-- `[[tag|tip|purple]]`
-- `[[tag|tip|red]]`
+- `((|tip|grey))`
+- `((|tip|green))`
+- `((|tip|yellow))`
+- `((|tip|orange))`
+- `((|tip|blue))`
+- `((|tip|purple))`
+- `((|tip|red))`
 
 ... _(repeat as necessary for remaining tags: on-hold, tbd, proposed, draft, mvp, etc.)_
 
 ---
 
-### With Arrow (using `[[<tag|label|bgcolor]]`)
+### With Arrow (using `[[<tag|label|bgcolor))`)
 
 #### MVP
 
-- `[[<tag|mvp|grey]]`
-- `[[<tag|mvp|green]]`
-- `[[<tag|mvp|yellow]]`
-- `[[<tag|mvp|orange]]`
-- `[[<tag|mvp|blue]]`
-- `[[<tag|mvp|purple]]`
-- `[[<tag|mvp|red]]`
+- `[[<tag|mvp|grey))`
+- `[[<tag|mvp|green))`
+- `[[<tag|mvp|yellow))`
+- `[[<tag|mvp|orange))`
+- `[[<tag|mvp|blue))`
+- `[[<tag|mvp|purple))`
+- `[[<tag|mvp|red))`
 
 ... _(repeat as necessary for remaining tags: on-hold, tbd, proposed, draft, mvp, etc.)_
 

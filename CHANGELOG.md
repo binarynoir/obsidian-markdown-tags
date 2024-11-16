@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - none
 
+## [1.1.0] - 2024-11-15
+
+### Changed
+
+- Tags are now formatted using `((tag|label|bgcolor|fgcolor))` format so as not to conflict with other common markdown
+- CSS class is now bn-tags amd bn-arrow-tags so as not to conflict with other common classes
+- README.md reflects new tag format
+
 ## [1.0.2] - 2024-11-11
 
 ### Changed
