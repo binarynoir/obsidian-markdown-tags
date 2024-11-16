@@ -11,7 +11,7 @@ const labelMap = [
 const colorMap = ["grey", "green", "yellow", "orange", "blue", "purple", "red"];
 
 // Regular expression to match custom tag syntax like [[tag|label|bgcolor|fgcolor]]
-const tagSyntaxRegex = /\[\[<?tag\|(?<label>[^\]|]+)(?:\|(?<bgcolor>[^\]|]*))?(?:\|(?<fgcolor>[^\]|]*))?\]\]/g;
+const tagSyntaxRegex = /\(\(<?tag\|(?<label>[^\)|]+)(?:\|(?<bgcolor>[^\)|]*))?(?:\|(?<fgcolor>[^\)|]*))?\)\)/g;
 
 const isValidHexColor = (color: string): boolean => /^#([0-9A-Fa-f]{3}){1,2}$/.test(color);
 
@@ -30,8 +30,10 @@ function generateTagDecoration(label: string, bgcolor?: string, fgcolor?: string
 	// Check if a valid custom foreground color is provided
 	const fgCustomColor = fgcolor && isValidHexColor(fgcolor) ? fgcolor : null;
 
-	// Combine classes, adding 'arrow-tags' if the arrow flag is true
-	const combinedClasses = `tags ${labelClass} ${bgColorClass} ${arrow ? 'arrow-tags' : ''}`.trim();
+	console.log();
+
+	// Combine classes, adding 'bn-arrow-tags' if the arrow flag is true
+	const combinedClasses = `bn-tags ${labelClass} ${bgColorClass} ${arrow ? 'bn-arrow-tags' : ''}`.trim();
 
 	// Build inline style if custom background or foreground colors are provided
 	const style = `${bgCustomColor ? `background-color: ${bgCustomColor};` : ''}${fgCustomColor ? ` color: ${fgCustomColor};` : ''}`;
@@ -110,16 +112,16 @@ export default class tagsPlugin extends Plugin {
 						const escapedLabel = escapeHtml(label);
 						const validBgColor = bgcolor && isValidColor(bgcolor) ? bgcolor : '';
 						const validFgColor = fgcolor && isValidColor(fgcolor) ? fgcolor : '';
-						const arrow = match[0].startsWith("[[<");
+						const arrow = match[0].startsWith("((<");
 
 						// Apply decoration to hide the leading part
-						builder.add(start, start + match[0].indexOf(label), Decoration.mark({ class: "hidden" }));
+						builder.add(start, start + match[0].indexOf(label), Decoration.mark({ class: "bn-hidden" }));
 
 						// Apply decoration to the inner text (label)
 						builder.add(start + match[0].indexOf(label), start + match[0].indexOf(label) + label.length, generateTagDecoration(escapedLabel, validBgColor, validFgColor, arrow));
 
 						// Apply decoration to hide the trailing part
-						builder.add(start + match[0].indexOf(label) + label.length, end, Decoration.mark({ class: "hidden" }));
+						builder.add(start + match[0].indexOf(label) + label.length, end, Decoration.mark({ class: "bn-hidden" }));
 					}
 				}
 
