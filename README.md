@@ -92,47 +92,47 @@ See Examples Markdown Documents
 - `((tag|planned|orange))`
 - `((tag|planned|blue))`
 - `((tag|planned|purple))`
-- `((|planned|red))`
+- `((tag|planned|red))`
 
 #### IN-PROGRESS
 
-- `((|in-progress|grey))`
-- `((|in-progress|green))`
-- `((|in-progress|yellow))`
-- `((|in-progress|orange))`
-- `((|in-progress|blue))`
-- `((|in-progress|purple))`
-- `((|in-progress|red))`
+- `((tag|in-progress|grey))`
+- `((tag|in-progress|green))`
+- `((tag|in-progress|yellow))`
+- `((tag|in-progress|orange))`
+- `((tag|in-progress|blue))`
+- `((tag|in-progress|purple))`
+- `((tag|in-progress|red))`
 
 #### DOING
 
-- `((|doing|grey))`
-- `((|doing|green))`
-- `((|doing|yellow))`
-- `((|doing|orange))`
-- `((|doing|blue))`
-- `((|doing|purple))`
-- `((|doing|red))`
+- `((tag|doing|grey))`
+- `((tag|doing|green))`
+- `((tag|doing|yellow))`
+- `((tag|doing|orange))`
+- `((tag|doing|blue))`
+- `((tag|doing|purple))`
+- `((tag|doing|red))`
 
 #### DONE
 
-- `((|done|grey))`
-- `((|done|green))`
-- `((|done|yellow))`
-- `((|done|orange))`
-- `((|done|blue))`
-- `((|done|purple))`
-- `((|done|red))`
+- `((tag|done|grey))`
+- `((tag|done|green))`
+- `((tag|done|yellow))`
+- `((tag|done|orange))`
+- `((tag|done|blue))`
+- `((tag|done|purple))`
+- `((tag|done|red))`
 
 #### TIP
 
-- `((|tip|grey))`
-- `((|tip|green))`
-- `((|tip|yellow))`
-- `((|tip|orange))`
-- `((|tip|blue))`
-- `((|tip|purple))`
-- `((|tip|red))`
+- `((tag|tip|grey))`
+- `((tag|tip|green))`
+- `((tag|tip|yellow))`
+- `((tag|tip|orange))`
+- `((tag|tip|blue))`
+- `((tag|tip|purple))`
+- `((tag|tip|red))`
 
 ... _(repeat as necessary for remaining tags: on-hold, tbd, proposed, draft, mvp, etc.)_
 
