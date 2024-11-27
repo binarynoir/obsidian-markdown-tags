@@ -1,4 +1,4 @@
-import { Plugin } from "obsidian";
+import { Plugin, MarkdownPostProcessorContext } from "obsidian";
 import { EditorView, Decoration, DecorationSet, ViewPlugin, ViewUpdate } from "@codemirror/view";
 import { RangeSetBuilder } from "@codemirror/state";
 
@@ -11,7 +11,7 @@ const labelMap = [
 const colorMap = ["grey", "green", "yellow", "orange", "blue", "purple", "red"];
 
 // Regular expression to match custom tag syntax like ((tag|label|bgcolor|fgcolor))
-const tagSyntaxRegex = /\(\(<?tag\|(?<label>[^\)|]+)(?:\|(?<bgcolor>[^\)|]*))?(?:\|(?<fgcolor>[^\)|]*))?\)\)/g;
+const tagSyntaxRegex = /\(\(<?tag\|(?<label>[^)|]+)(?:\|(?<bgcolor>[^)|]*))?(?:\|(?<fgcolor>[^)|]*))?\)\)/g;
 
 const isValidHexColor = (color: string): boolean => /^#([0-9A-Fa-f]{3}){1,2}$/.test(color);
 
@@ -49,14 +49,14 @@ function generateTagDecoration(label: string, bgcolor?: string, fgcolor?: string
 
 export default class tagsPlugin extends Plugin {
 	async onload() {
-		// Register the CodeMirror plugin
-		this.registerEditorExtension(this.tagsHighlighter());
+		// Register the CodeMirror plugin for the editor
+		this.registerEditorExtension(this.editModeTagsHighlighter());
+
+		// Register the MarkdownPostProcessor for reader view
+		this.registerMarkdownPostProcessor(this.viewModeTagsHighlighter());
 	}
 
-	onunload() {
-	}
-
-	private tagsHighlighter() {
+	private editModeTagsHighlighter() {
 		// Define the ViewPlugin
 		return ViewPlugin.fromClass(class {
 			decorations: DecorationSet;
@@ -128,5 +128,40 @@ export default class tagsPlugin extends Plugin {
 				return builder.finish() as DecorationSet;
 			}
 		}, { decorations: v => v.decorations });
+	}
+
+	private viewModeTagsHighlighter() {
+		return (el: HTMLElement, ctx: MarkdownPostProcessorContext) => {
+			const tags = Array.from(el.querySelectorAll("p, li, span, div"));
+
+			tags.forEach(tagElement => {
+				const originalText = tagElement.textContent; // Use textContent to get plain text
+				if (!originalText) return; // Skip if there's no text
+
+				let match: RegExpExecArray | null;
+				let updatedHTML = originalText; // Start with escaped text content
+
+				// Process matches in the text content
+				while ((match = tagSyntaxRegex.exec(originalText)) !== null) {
+
+					// Extract named groups with default values
+					const { label = "", bgcolor = "", fgcolor = "" } = match.groups ?? {};
+					const escapedLabel = escapeHtml(label);
+					const validBgColor = bgcolor && isValidColor(bgcolor) ? bgcolor : "";
+					const validFgColor = fgcolor && isValidColor(fgcolor) ? fgcolor : "";
+					const arrow = match[0].startsWith("((<");
+
+					// Generate the styled decoration
+					const decoration = generateTagDecoration(escapedLabel, validBgColor, validFgColor, arrow);
+
+					// Replace tag syntax with styled span
+					const replacement = `<span class="${decoration.spec.class}" style="${decoration.spec.attributes.style}">${escapedLabel}</span>`;
+					updatedHTML = updatedHTML.replace(match[0], replacement);
+				}
+
+				// Update the element's innerHTML with the processed HTML
+				tagElement.innerHTML = updatedHTML;
+			});
+		}
 	}
 }

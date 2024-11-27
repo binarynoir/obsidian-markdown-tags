@@ -14,11 +14,15 @@
 		all: unset;
 		all: inherit;
 		display: inline-block;
-		height: 24px;
-		line-height: 24px;
+		height: 20px;
+		line-height: 20px;
+		/* left: 10px; */
+		right: -6px;
 		position: relative;
-		margin: 0 10px 0 10px;
+		margin: 0 8px 0 10px;
 		padding: 0 10px 0 12px;
+		border-bottom-left-radius: 2px;
+		border-top-left-radius: 2px;
 		border-bottom-right-radius: 3px;
 		border-top-right-radius: 3px;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -33,19 +37,20 @@
 			content: "";
 			position: absolute;
 			top: 0;
-			left: -12px;
+			left: -11px;
 			width: 0;
 			height: 0;
 			border-color: transparent;
+			border-radius: 15%;
 			border-style: solid;
-			border-width: 12px 12px 12px 0;
+			border-width: 10px 12px 10px 0;
 		}
 
 		&:after {
 			content: "";
 			position: absolute;
-			top: 10px;
-			left: 1px;
+			top: 7.5px;
+			left: .5px;
 			float: left;
 			width: 5px;
 			height: 5px;

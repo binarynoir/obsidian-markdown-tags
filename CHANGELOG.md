@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - none
 
+## [1.2.0] - 2024-11-26
+
+### Added
+
+- Support for reader view
+- Example markdown documents
+
+### Changed
+
+- Improved arow tag styling
+
 ## [1.1.1] - 2024-11-15
 
 ### Fixed
