@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-markdown-tags",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"description": "Enhance your documents with custom tags. Use predefined or custom labels, customizable colors, and arrow indicators to visually track tasks and statuses.",
 	"main": "main.js",
 	"repository": {
