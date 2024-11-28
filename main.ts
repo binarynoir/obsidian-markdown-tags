@@ -30,8 +30,6 @@ function generateTagDecoration(label: string, bgcolor?: string, fgcolor?: string
 	// Check if a valid custom foreground color is provided
 	const fgCustomColor = fgcolor && isValidHexColor(fgcolor) ? fgcolor : null;
 
-	console.log();
-
 	// Combine classes, adding 'bn-arrow-tags' if the arrow flag is true
 	const combinedClasses = `bn-tags ${labelClass} ${bgColorClass} ${arrow ? 'bn-arrow-tags' : ''}`.trim();
 
@@ -87,6 +85,7 @@ export default class tagsPlugin extends Plugin {
 						let inCodeBlock = false;
 						for (let i = 1; i <= view.state.doc.lines; i++) {
 							const currentLine = view.state.doc.line(i).text.trim();
+
 							if (currentLine.startsWith("```")) {
 								inCodeBlock = !inCodeBlock;
 							}
@@ -97,13 +96,36 @@ export default class tagsPlugin extends Plugin {
 						return false;
 					};
 
+					// Function to check if a position is inside a callout block
+					const isInCalloutBlock = (pos: number): boolean => {
+						let inCalloutBlock = false;
+						const doc = view.state.doc;
+
+						for (let i = 1; i <= doc.lines; i++) {
+							const currentLine = doc.line(i).text.trim();
+
+							// Detect start of callout
+							if (currentLine.match(/^>\s*\[![^\]]+]/)) {
+								inCalloutBlock = true;
+							}
+							// Detect end of callout (blank line or end of document)
+							if (inCalloutBlock && (currentLine === "" || i === doc.lines)) {
+								inCalloutBlock = false;
+							}
+							if (pos >= doc.line(i).from && pos <= doc.line(i).to) {
+								return inCalloutBlock;
+							}
+						}
+						return false;
+					};
+
 					while ((match = tagSyntaxRegex.exec(text)) !== null) {
 						const start = from + (match.index ?? 0); // Start of the match
 						const end = start + match[0].length; // End of the match
 
 						// Check if the cursor is within the match range or if the match is inside a code block
-						if (cursorPos >= start && cursorPos <= end || isInCodeBlock(start)) {
-							continue; // Skip adding decorations if the cursor is within the range or inside a code block
+						if (cursorPos >= start && cursorPos <= end || (isInCodeBlock(start) || isInCalloutBlock(start))) {
+							continue; // Skip adding decorations if the cursor is within the range or inside a code or callout block
 						}
 
 						// Extract named groups with default values
@@ -133,6 +155,9 @@ export default class tagsPlugin extends Plugin {
 	private viewModeTagsHighlighter() {
 		return (el: HTMLElement, ctx: MarkdownPostProcessorContext) => {
 			const tags = Array.from(el.querySelectorAll("p, li, span, div"));
+
+			// skip if we are in a callout
+			if (tags?.[0]?.classList?.contains("callout")) return;
 
 			tags.forEach(tagElement => {
 				const originalText = tagElement.textContent; // Use textContent to get plain text
