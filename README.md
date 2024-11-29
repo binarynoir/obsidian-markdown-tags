@@ -1,6 +1,6 @@
 # Tags for Markdown: Enhanced Styled Labels for Obsidian
 
-Add visual flair to your Markdown documents with custom tag styles! **Tags for Markdowns** lets you highlight and style labels within Markdown documents using simple syntax, customizable colors, and optional arrow indicators—all within Obsidian. If you like **Tags for Markdown**, get our plugin for [Visual Studio Code](https://github.com/binarynoir/vscode-markdown-tags/)!
+Add visual flair to your Markdown documents with custom tag styles! **Tags for Markdown** lets you highlight and style labels within Markdown documents using simple syntax, customizable colors, and optional arrow indicators—all within Obsidian. If you like **Tags for Markdown**, get our plugin for [Visual Studio Code](https://github.com/binarynoir/vscode-markdown-tags/)!
 
 [![Support me on Buy Me a Coffee](https://img.shields.io/badge/Support%20me-Buy%20Me%20a%20Coffee-orange?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/binarynoir)
 [![Support me on Ko-fi](https://img.shields.io/badge/Support%20me-Ko--fi-blue?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/binarynoir)
