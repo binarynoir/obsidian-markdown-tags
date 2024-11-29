@@ -1,4 +1,4 @@
-# Markdown Tags: Enhanced Styled Labels for Obsidian
+# Tags for Markdown: Enhanced Styled Labels for Obsidian
 
 Add visual flair to your Markdown documents with custom tag styles! **Markdown Tags** lets you highlight and style labels within Markdown using simple syntax, customizable colors, and optional arrow indicators—all within Obsidian.
 
