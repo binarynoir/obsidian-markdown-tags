@@ -96,35 +96,12 @@ export default class tagsPlugin extends Plugin {
 						return false;
 					};
 
-					// Function to check if a position is inside a callout block
-					const isInCalloutBlock = (pos: number): boolean => {
-						let inCalloutBlock = false;
-						const doc = view.state.doc;
-
-						for (let i = 1; i <= doc.lines; i++) {
-							const currentLine = doc.line(i).text.trim();
-
-							// Detect start of callout
-							if (currentLine.match(/^>\s*\[![^\]]+]/)) {
-								inCalloutBlock = true;
-							}
-							// Detect end of callout (blank line or end of document)
-							if (inCalloutBlock && (currentLine === "" || i === doc.lines)) {
-								inCalloutBlock = false;
-							}
-							if (pos >= doc.line(i).from && pos <= doc.line(i).to) {
-								return inCalloutBlock;
-							}
-						}
-						return false;
-					};
-
 					while ((match = tagSyntaxRegex.exec(text)) !== null) {
 						const start = from + (match.index ?? 0); // Start of the match
 						const end = start + match[0].length; // End of the match
 
 						// Check if the cursor is within the match range or if the match is inside a code block
-						if (cursorPos >= start && cursorPos <= end || (isInCodeBlock(start) || isInCalloutBlock(start))) {
+						if (cursorPos >= start && cursorPos <= end || (isInCodeBlock(start))) {
 							continue; // Skip adding decorations if the cursor is within the range or inside a code or callout block
 						}
 
@@ -156,19 +133,17 @@ export default class tagsPlugin extends Plugin {
 		return (el: HTMLElement, ctx: MarkdownPostProcessorContext) => {
 			const tags = Array.from(el.querySelectorAll("p, li, span, div"));
 
-			// skip if we are in a callout
-			if (tags?.[0]?.classList?.contains("callout")) return;
-
 			tags.forEach(tagElement => {
 				const originalText = tagElement.textContent; // Use textContent to get plain text
 				if (!originalText) return; // Skip if there's no text
 
 				let match: RegExpExecArray | null;
-				let updatedHTML = originalText; // Start with escaped text content
+				let updatedHTML = tagElement.innerHTML; // Start with the existing HTML
+				let matchFound = false; // Initialize the flag
 
 				// Process matches in the text content
 				while ((match = tagSyntaxRegex.exec(originalText)) !== null) {
-
+					matchFound = true;
 					// Extract named groups with default values
 					const { label = "", bgcolor = "", fgcolor = "" } = match.groups ?? {};
 					const escapedLabel = escapeHtml(label);
@@ -181,12 +156,14 @@ export default class tagsPlugin extends Plugin {
 
 					// Replace tag syntax with styled span
 					const replacement = `<span class="${decoration.spec.class}" style="${decoration.spec.attributes.style}">${escapedLabel}</span>`;
-					updatedHTML = updatedHTML.replace(match[0], replacement);
+					const escapedMatch = escapeHtml(match[0]); // Escape the match to handle HTML entities
+					updatedHTML = updatedHTML.replace(escapedMatch, replacement);
 				}
 
-				// Update the element's innerHTML with the processed HTML
-				tagElement.innerHTML = updatedHTML;
+				if (matchFound) {
+					tagElement.innerHTML = updatedHTML; // Process this line only if a match was found
+				}
 			});
-		}
+		};
 	}
 }
