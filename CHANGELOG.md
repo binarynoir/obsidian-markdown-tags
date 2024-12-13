@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - none
 
+## [1.2.2] - 2024-12-13
+
+### Fixed
+
+- Extension breaks other elemets in Preview Mode
+- Some elements in Preview Mode and Edit mode did not support tags
+
+
 ## [1.2.1] - 2024-11-28
 
 ### Fixed
