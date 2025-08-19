@@ -10,8 +10,9 @@ const labelMap = [
 ];
 const colorMap = ["grey", "green", "yellow", "orange", "blue", "purple", "red"];
 
-// Regular expression to match custom tag syntax like ((tag|label|bgcolor|fgcolor))
-const tagSyntaxRegex = /\(\(<?tag\|(?<label>[^)|]+)(?:\|(?<bgcolor>[^)|]*))?(?:\|(?<fgcolor>[^)|]*))?\)\)/g;
+// Regular expression to match custom tag syntax like ((tag|label|bgcolor|fgcolor)) or ((tag/label/bgcolor/fgcolor))
+// Supports both | and / as separators
+const tagSyntaxRegex = /\(\(<?tag(?:[\|\/])(?<label>[^\|\/\)]+)(?:[\|\/](?<bgcolor>[^\|\/\)]*))?(?:[\|\/](?<fgcolor>[^\|\/\)]*))?\)\)/g;
 
 const isValidHexColor = (color: string): boolean => /^#([0-9A-Fa-f]{3}){1,2}$/.test(color);
 
@@ -106,8 +107,10 @@ export default class tagsPlugin extends Plugin {
 						}
 
 						// Extract named groups with default values
-						const { label = '', bgcolor = '', fgcolor = '' } = match.groups ?? {};
+						// const { label = '', bgcolor = '', fgcolor = '' } = match.groups ?? {};
+						const { category = '', label = '', bgcolor = '', fgcolor = '' } = match.groups ?? {};
 
+						const escapedCategory = escapeHtml(category);
 						const escapedLabel = escapeHtml(label);
 						const validBgColor = bgcolor && isValidColor(bgcolor) ? bgcolor : '';
 						const validFgColor = fgcolor && isValidColor(fgcolor) ? fgcolor : '';
