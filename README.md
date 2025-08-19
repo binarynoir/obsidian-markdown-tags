@@ -20,14 +20,23 @@ Use predefined colors or specify custom hex codes for both background and foregr
 
 ### 📄 Flexible Syntax
 
+
 Simple, flexible syntax options:
+
+You can use either the `|` (pipe) or `/` (slash) character as a separator between tag components:
 
 ```markdown
 ((tag|label))
+((tag/label))
 ((tag|label|background-color))
+((tag/label/background-color))
 ((tag|label|background-color|foreground-color))
+((tag/label/background-color/foreground-color))
 ((<tag|label)) <!-- Adds an arrow to the left -->
+((<tag/label)) <!-- Adds an arrow to the left -->
 ```
+
+> **Note:** Both `|` and `/` are supported as separators. Use whichever you prefer or fits your workflow. This is especially useful when using tags within markdown tables.
 
 ### 🌈 Supports a Variety of Colors
 
