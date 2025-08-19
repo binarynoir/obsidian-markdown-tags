@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - none
 
+## [1.3.1] - 2025-08-19
+
+### Fixed
+
+- Support for markdown tables
+
 ## [1.3.0] - 2025-08-19
 
 ### Added

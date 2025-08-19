@@ -107,10 +107,8 @@ export default class tagsPlugin extends Plugin {
 						}
 
 						// Extract named groups with default values
-						// const { label = '', bgcolor = '', fgcolor = '' } = match.groups ?? {};
-						const { category = '', label = '', bgcolor = '', fgcolor = '' } = match.groups ?? {};
+						const { label = '', bgcolor = '', fgcolor = '' } = match.groups ?? {};
 
-						const escapedCategory = escapeHtml(category);
 						const escapedLabel = escapeHtml(label);
 						const validBgColor = bgcolor && isValidColor(bgcolor) ? bgcolor : '';
 						const validFgColor = fgcolor && isValidColor(fgcolor) ? fgcolor : '';
@@ -134,7 +132,7 @@ export default class tagsPlugin extends Plugin {
 
 	private viewModeTagsHighlighter() {
 		return (el: HTMLElement, ctx: MarkdownPostProcessorContext) => {
-			const tags = Array.from(el.querySelectorAll("p, li, span, div"));
+			const tags = Array.from(el.querySelectorAll("p, li, span, div, td, th"));
 
 			tags.forEach(tagElement => {
 				const originalText = tagElement.textContent; // Use textContent to get plain text
