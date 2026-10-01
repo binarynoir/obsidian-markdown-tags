@@ -20,7 +20,6 @@ Use predefined colors or specify custom hex codes for both background and foregr
 
 ### 📄 Flexible Syntax
 
-
 Simple, flexible syntax options:
 
 You can use either the `|` (pipe) or `/` (slash) character as a separator between tag components:
