@@ -9,11 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - none
 
-## [1.3.1] - 2025-08-19
+## [1.4.0] - 2026-10-01
 
 ### Fixed
 
-- Support for markdown tables
+- Labels containing `&`, `<` or `>` showed as HTML entities (for example `R&amp;D`) in edit mode and tables
+- Labels containing quotes or apostrophes did not render in Reading view
+- Tags in tables went back to plain text after the cursor left the table in Live Preview
+- `((tag|label))` tags written in plain text were skipped by the editor in edit mode because of the `|` separator
+- Console error `closest is not a function` while typing or scrolling in the editor
+- Tags in tables not being processed in panes other than the one active when the plugin loaded
+
+### Changed
+
+- Tag classes and styles are now built in one shared place for edit mode, tables and Reading view
+- Edit mode finds fenced code blocks in a single pass, which is faster in large notes
+- Table processing is debounced and watches the whole workspace
+
+### Development
+
+- Added Prettier and an ESLint flat config, with `format`, `format:check` and `lint` scripts
+- Upgraded dev dependencies, including TypeScript 6, esbuild 0.28 and typescript-eslint 8
+- Rewrote and extended the notes in `examples/`, including a new table test note
 
 ## [1.3.0] - 2025-08-19
 
@@ -33,7 +50,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Extension breaks other elemets in Preview Mode
 - Some elements in Preview Mode and Edit mode did not support tags
-
 
 ## [1.2.1] - 2024-11-28
 
