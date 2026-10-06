@@ -1,6 +1,8 @@
 # Tags for Markdown: Enhanced Styled Labels for Obsidian
 
-Add visual flair to your Markdown documents with custom tag styles! **Tags for Markdown** lets you highlight and style labels within Markdown documents using simple syntax, customizable colors, and optional arrow indicators—all within Obsidian. If you like **Tags for Markdown**, get our extension for [Visual Studio Code](https://github.com/binarynoir/vscode-markdown-tags/)!
+Add visual flair to your Markdown documents with custom tag styles! **Tags for Markdown** lets you highlight and style labels within Markdown documents using simple syntax, customizable colors, and optional arrow indicators—all within Obsidian.
+
+Also available for [VS Code](https://github.com/binarynoir/vscode-markdown-tags) and [VitePress](https://github.com/binarynoir/vitepress-markdown-tags).
 
 [![Support me on Buy Me a Coffee](https://img.shields.io/badge/Support%20me-Buy%20Me%20a%20Coffee-orange?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/binarynoir)
 [![Support me on Ko-fi](https://img.shields.io/badge/Support%20me-Ko--fi-blue?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/binarynoir)
@@ -183,6 +185,21 @@ The plugin defaults to `grey` when invalid colors are detected to ensure a consi
 ### Manually installing the plugin
 
 Copy over main.js, styles.css, manifest.json to your vault VaultFolder/.obsidian/plugins/obsidian-markdown-tags/.
+
+---
+
+## Related projects
+
+The same `((tag|label|color))` syntax is available in other tools. The
+[VS Code extension](https://github.com/binarynoir/vscode-markdown-tags) is the
+main project: start there for the syntax reference and to report issues
+common to all of them.
+
+| Project                                                                          | Where it works     |
+| -------------------------------------------------------------------------------- | ------------------ |
+| [vscode-markdown-tags](https://github.com/binarynoir/vscode-markdown-tags)       | Visual Studio Code |
+| [obsidian-markdown-tags](https://github.com/binarynoir/obsidian-markdown-tags)   | Obsidian           |
+| [vitepress-markdown-tags](https://github.com/binarynoir/vitepress-markdown-tags) | VitePress 2 sites  |
 
 ---
 
