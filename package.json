@@ -11,7 +11,10 @@
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
 		"version": "node version-bump.mjs && git add manifest.json versions.json",
-		"release": "git pull && git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags",
+		"release": "node scripts/release.mjs",
+		"release:patch": "node scripts/release.mjs patch",
+		"release:minor": "node scripts/release.mjs minor",
+		"release:major": "node scripts/release.mjs major",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "eslint main.ts"
