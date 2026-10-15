@@ -274,6 +274,7 @@ Tags for Markdown for Obsidian is one of a family of open-source VitePress plugi
 
 - [Auto Sidebar](https://binarynoir.tech/plugins/auto-sidebar): sidebar built from your folders
 - [Auto Navbar](https://binarynoir.tech/plugins/auto-navbar): navbar built from your folders
+- [Sidebar Accordion](https://binarynoir.tech/plugins/sidebar-accordion): one open sidebar group at a time
 - [Markdown Tags](https://binarynoir.tech/plugins/markdown-tags/): inline status badges
 - [Reading Time Tag](https://binarynoir.tech/plugins/reading-time-tag): reading-time estimates
 - [Glossary Tooltips](https://binarynoir.tech/plugins/glossary/): hover definitions from one glossary file
