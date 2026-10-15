@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- none
+
+## [1.4.5] - 2026-10-15
+
 ### Changed
 
 - README: add Sidebar Accordion to the list of BinaryNoir plugins
