@@ -263,7 +263,7 @@ Pull requests are welcome too.
 
 <p align="center">
   <a href="https://binarynoir.tech">
-    <img alt="BinaryNoir" src="https://binarynoir.tech/logo-horizontal.svg" width="320">
+    <img alt="BinaryNoir" src="https://binarynoir.tech/logo-horizontal.png" width="320">
   </a>
 </p>
 
