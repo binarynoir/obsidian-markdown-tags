@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- none
+### Changed
+
+- README and manifest: point website, documentation and logo links (and `authorUrl`) to binarynoir.com, the new BinaryNoir domain
 
 ## [1.4.6] - 2026-10-22
 
